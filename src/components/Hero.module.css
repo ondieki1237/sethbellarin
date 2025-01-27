@@ -1,0 +1,168 @@
+.heroSection {
+  min-height: 100vh;
+  padding: 6rem 1rem;
+  background-color: var(--dark-bg);
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 128, 128, 0.1);
+  color: #00AEAE;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  width: fit-content;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #00AEAE;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 2.5rem;
+  color: var(--gray-400);
+  margin-top: -0.5rem;
+}
+
+.description {
+  color: var(--gray-400);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 32rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.primaryButton {
+  background-color: rgba(0, 128, 128, 0.1);
+  color: #ffffff;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-color: #00AEAE;
+}
+
+.primaryButton:hover {
+  background-color: #008080;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid #00AEAE;
+  background-color: #008080;
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(0, 128, 128, 0.1);
+  transform: translateY(-2px);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.socialLink {
+  color: var(--gray-400);
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #00AEAE;
+  transform: translateY(-2px);
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(0, 128, 128, 0.2), transparent);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .badge {
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+  }
+
+  .description {
+    margin: 0 auto;
+  }
+
+  .imageContainer {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+} 

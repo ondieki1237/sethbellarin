@@ -1,0 +1,126 @@
+.contactSection {
+	position: relative;
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 6rem 1rem;
+}
+
+
+.backgroundOverlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 128, 128, 0.9),
+		rgba(0, 174, 174, 0.8)
+	);
+	z-index: 1;
+}
+
+.container {
+	position: relative;
+	z-index: 2;
+	max-width: 80rem;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.title {
+	font-size: 4rem;
+	font-weight: 700;
+	color: white;
+	margin-bottom: 2rem;
+}
+
+.content {
+	max-width: 600px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.form {
+	width: 100%;
+}
+
+.inputGroup {
+	display: flex;
+	gap: 1rem;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	padding: 0.5rem;
+	border-radius: 50px;
+}
+
+.input {
+	flex: 1;
+	background: transparent;
+	border: none;
+	padding: 1rem 1.5rem;
+	color: white;
+	font-size: 1.125rem;
+}
+
+.input::placeholder {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.input:focus {
+	outline: none;
+}
+
+.submitButton {
+	background: white;
+	border: none;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+	transform: translateX(5px);
+	background: #00DCDC;
+	color: white;
+}
+
+.footer {
+	color: white;
+	font-size: 1rem;
+	opacity: 0.8;
+	margin-top: auto;
+}
+
+@media (max-width: 768px) {
+	.title {
+		font-size: 3rem;
+	}
+	
+	.inputGroup {
+		flex-direction: column;
+		background: none;
+		gap: 1rem;
+	}
+	
+	.input {
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 25px;
+	}
+	
+	.submitButton {
+		width: 100%;
+		border-radius: 25px;
+	}
+}
