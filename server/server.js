@@ -13,8 +13,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    user: 'bellarinseth@gmail.com',
+    pass: 'jaqi upjs ckjk abpz',
   }
 });
 
@@ -23,8 +23,8 @@ app.post('/api/send-email', async (req, res) => {
   const { email } = req.body;
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    from: 'bellarinseth@gmail.com',
+    to: 'bellarinseth@gmail.com', // You can change this to another email address if needed
     subject: 'New Contact from Portfolio',
     text: `New contact request from: ${email}`,
     html: `
