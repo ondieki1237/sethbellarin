@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './About.module.css';
+import sethImage from '../image/sethmakori2.jpg';
+
 
 const About = () => {
   const stats = [
@@ -16,9 +18,9 @@ const About = () => {
         <div className={styles.content}>
           <div className={styles.imageContainer}>
             <img
-              src="/sethmakori2.jpg"
-              alt="Seth Makori"
-              className={styles.image}
+              src={sethImage} alt="Seth Makori" className={styles.image}
+              // alt="Seth Makori"
+              // className={styles.image}
             />
             <div className={styles.imageOverlay} />
           </div>
