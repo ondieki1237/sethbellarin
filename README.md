@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# My Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my personal portfolio! This project showcases my skills, projects, and experience as a developer. Built with **React**, it is designed to be responsive, modern, and user-friendly.
 
-## Available Scripts
+## 🚀 Live Demo
 
-In the project directory, you can run:
+Check out the live version of my portfolio here: [https://ondieki1237.github.io/sethbellarin/ 
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Responsive Design**: Works seamlessly on all devices (desktop, tablet, and mobile).
+- **Project Showcase**: Highlights my best projects with descriptions, technologies used, and live demos.
+- **About Me**: A section introducing myself, my skills, and my journey as a developer.
+- **Contact Form**: An easy way for visitors to get in touch with me.
+- **Dark/Light Mode**: Toggle between light and dark themes for better user experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technologies Used
 
-### `npm test`
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: For handling navigation within the app.
+- **CSS/SCSS**: For styling and animations.
+- **Framer Motion**: For smooth animations and transitions.
+- **Git & GitHub**: For version control and deployment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Project Structure
 
-### `npm run build`
+```
+my-portfolio/
+├── public/              # Static assets like images and icons
+├── src/                 # Source code
+│   ├── components/      # Reusable React components
+│   ├── pages/           # Individual pages (Home, About, Projects, Contact)
+│   ├── assets/          # Images, icons, and other assets
+│   ├── styles/          # Global and component-specific styles
+│   ├── App.js           # Main application component
+│   └── index.js         # Entry point of the application
+├── package.json         # Project dependencies and scripts
+└── README.md            # This file
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this project locally, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/your-portfolio-repo.git
+   ```
+2. **Navigate to the project directory**:
+   ```bash
+   cd your-portfolio-repo
+   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Start the development server**:
+   ```bash
+   npm start
+   ```
+5. **Open your browser** and visit `http://localhost:3000` to view the portfolio.
 
-### `npm run eject`
+## 📜 Scripts
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `npm start`: Runs the app in development mode.
+- `npm build`: Builds the app for production.
+- `npm test`: Runs the test suite.
+- `npm eject`: Ejects the app from Create React App (if used).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🤝 Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contributions are welcome! If you find any issues or have suggestions for improvement, feel free to open an issue or submit a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📄 License
 
-## Learn More
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made with ❤️ by [Your Name](https://github.com/ondieki1237)
+```
+<img src="https://t.bkit.co/w_67a06e3be6941.gif" />
