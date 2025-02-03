@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sethbellarin/static/css/main.78ffd102.css",
+    "main.js": "/sethbellarin/static/js/main.9c4953cb.js",
+    "static/media/seth.jpg": "/sethbellarin/static/media/seth.91edd3933b45f0df8a5c.jpg",
+    "static/media/sethmakori2.jpg": "/sethbellarin/static/media/sethmakori2.421f9dd39dfc7795b6e3.jpg",
+    "index.html": "/sethbellarin/index.html",
+    "main.78ffd102.css.map": "/sethbellarin/static/css/main.78ffd102.css.map",
+    "main.9c4953cb.js.map": "/sethbellarin/static/js/main.9c4953cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78ffd102.css",
+    "static/js/main.9c4953cb.js"
+  ]
+}
