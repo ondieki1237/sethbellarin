@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Skills.module.css";
-import { FaPython, FaReact, FaJs } from "react-icons/fa";
+import { FaPython, FaReact, FaJs, FaFigma, FaCamera } from "react-icons/fa";
 import { SiGo } from "react-icons/si";
 
 const Skills = () => {
@@ -28,6 +28,18 @@ const Skills = () => {
       percentage: 90,
       icon: <FaReact className={styles.skillIconFA} />,
       color: "#61DAFB",
+    },
+    {
+      name: "Figma",
+      percentage: 80,
+      icon: <FaFigma className={styles.skillIconFA} />,
+      color: "#A259FF", // Figma's brand color
+    },
+    {
+      name: "Photography",
+      percentage: 75,
+      icon: <FaCamera className={styles.skillIconFA} />,
+      color: "#FF6B6B", // A warm color for photography
     },
   ];
 

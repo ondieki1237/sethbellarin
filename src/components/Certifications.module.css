@@ -1,0 +1,95 @@
+.certificationsSection {
+    padding: 8rem 1rem;
+    background-color: var(--dark-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #00AEAE;
+    margin-bottom: 5rem;
+    position: relative;
+  }
+  
+  .title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 2px;
+    background-color: #00AEAE;
+  }
+  
+  .certificatesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .certificateCard {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .certificateCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 174, 174, 0.3);
+  }
+  
+  .certificateTitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #00AEAE;
+    margin-bottom: 1rem;
+  }
+  
+  .certificateIssuer {
+    font-size: 1.25rem;
+    color: var(--gray-400);
+    margin-bottom: 1rem;
+  }
+  
+  .certificateDescription {
+    font-size: 1rem;
+    color: var(--gray-400);
+    margin-bottom: 1.5rem;
+  }
+  
+  .certificateLink {
+    display: inline-block;
+    background-color: #00AEAE;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .certificateLink:hover {
+    background-color: #008080;
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+  
+    .certificatesGrid {
+      grid-template-columns: 1fr;
+    }
+  }

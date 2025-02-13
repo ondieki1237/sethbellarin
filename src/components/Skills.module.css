@@ -146,3 +146,29 @@
     font-size: 1rem;
   }
 }
+.skillsGrid {
+  display: flex;
+  justify-content: center; /* Center the skills */
+  gap: 2rem; /* Reduce gap for better spacing */
+  flex-wrap: wrap; /* Allow wrapping */
+}
+
+.skillCard {
+  text-align: center;
+  width: 20%; /* Adjust width for larger screens */
+  flex-grow: 1;
+  max-width: 200px; /* Set a maximum width for each skill card */
+  margin-bottom: 2rem; /* Add margin for better spacing */
+}
+
+@media (max-width: 768px) {
+  .skillCard {
+    width: 45%; /* Adjust width for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .skillCard {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}

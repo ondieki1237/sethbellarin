@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Skills from './components/Skills';
+import Certifications from './components/Certifications'; // Import Certifications
 import Contact from './components/Contact';
 import './App.css';
 
@@ -21,9 +22,9 @@ function App() {
       <About />
       <Services />
       <Skills />
+      <Certifications /> {/* Add Certifications */}
       <Contact />
     </div>
-
   );
 }
 
