@@ -76,14 +76,14 @@ export default function GraphicsShowcase() {
             title="Posters"
             icon={<FileImage className={styles.categoryIcon} />}
             imageSrc={`${basePath}/images/poster1.jpg`}
-            link="https://drive.google.com/drive/folders/139Z7qJH87yKM6JByVOEJjWfPPkwgmAxg?usp=sharing"
+            link="https://drive.google.com/drive/folders/1CHh3MnKyITHP9Q4VLRbD5k_pEYQE01J9?usp=sharing"
           />
 
           <DesignCategory
             title="Logos"
             icon={<Layout className={styles.categoryIcon} />}
             imageSrc={`${basePath}/images/poster2.jpg`}
-            link="https://drive.google.com/drive/folders/1CHh3MnKyITHP9Q4VLRbD5k_pEYQE01J9?usp=sharing"
+            link="https://drive.google.com/drive/folders/139Z7qJH87yKM6JByVOEJjWfPPkwgmAxg?usp=sharing"
           />
 
           <DesignCategory
