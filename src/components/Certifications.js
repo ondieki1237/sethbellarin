@@ -29,7 +29,11 @@ const Certifications = () => {
         <h2 className={styles.title}>Certifications & Awards</h2>
         <div className={styles.certificatesGrid}>
           {certificates.map((cert, index) => (
-            <div key={index} className={styles.certificateCard}>
+            <div
+              key={index}
+              className={styles.certificateCard}
+              style={{ animationDelay: `${index * 0.2}s` }} // Staggered animation for each card
+            >
               <h3 className={styles.certificateTitle}>{cert.title}</h3>
               <p className={styles.certificateIssuer}>Issued by: {cert.issuer}</p>
               <p className={styles.certificateDescription}>{cert.description}</p>
