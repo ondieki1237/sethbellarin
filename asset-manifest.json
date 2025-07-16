@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sethbellarin/static/css/main.d5d8f188.css",
-    "main.js": "/sethbellarin/static/js/main.f914d89f.js",
+    "main.js": "/sethbellarin/static/js/main.44f69bed.js",
     "static/media/seth.jpg": "/sethbellarin/static/media/seth.91edd3933b45f0df8a5c.jpg",
     "static/media/sethmakori2.jpg": "/sethbellarin/static/media/sethmakori2.421f9dd39dfc7795b6e3.jpg",
     "index.html": "/sethbellarin/index.html",
     "main.d5d8f188.css.map": "/sethbellarin/static/css/main.d5d8f188.css.map",
-    "main.f914d89f.js.map": "/sethbellarin/static/js/main.f914d89f.js.map"
+    "main.44f69bed.js.map": "/sethbellarin/static/js/main.44f69bed.js.map"
   },
   "entrypoints": [
     "static/css/main.d5d8f188.css",
-    "static/js/main.f914d89f.js"
+    "static/js/main.44f69bed.js"
   ]
 }
