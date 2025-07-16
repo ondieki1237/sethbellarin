@@ -25,9 +25,9 @@ const Services = () => {
       icon: <FaChartBar className={styles.icon} />
     },
     {
-        title: "Photography",
-        description: "Capturing the epic moments in lens to cherish the unforgottable memories in life",
-        icon: <FaCamera className={styles.icon} />
+      title: "Photography",
+      description: "Capturing epic moments through the lens to cherish unforgettable memories.",
+      icon: <FaCamera className={styles.icon} />
     },
     {
       title: "Running Technical Communities",
@@ -37,26 +37,38 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className={styles.servicesSection}>
+    <section
+      id="services"
+      className={styles.servicesSection}
+      aria-label="Professional Services offered by Seth Makori Bellarin"
+    >
       <div className={styles.container}>
-        <h2 className={styles.title}>Services</h2>
-        
-        <div className={styles.servicesGrid}>
+        <h2 className={styles.title}>My Services</h2>
+        {/* <p className={styles.subtitle}>
+          Comprehensive expertise ranging from software development, design, to community leadership. Based in Kenya, serving global clients.
+        </p> */}
+
+        <div className={styles.servicesGrid} role="list">
           {services.map((service) => (
-            <div
+            <article
               key={service.title}
               className={styles.serviceCard}
+              role="listitem"
+              aria-labelledby={`${service.title.toLowerCase().replace(/\s+/g, '-')}-title`}
             >
-              <div className={styles.iconWrapper}>
+              <div className={styles.iconWrapper} aria-hidden="true">
                 {service.icon}
               </div>
-              <h3 className={styles.serviceTitle}>
+              <h3
+                id={`${service.title.toLowerCase().replace(/\s+/g, '-')}-title`}
+                className={styles.serviceTitle}
+              >
                 {service.title}
               </h3>
               <p className={styles.description}>
                 {service.description}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -64,4 +76,4 @@ const Services = () => {
   );
 };
 
-export default Services; 
+export default Services;
