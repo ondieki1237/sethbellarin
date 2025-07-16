@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelopeOpen } from 'react-icons/fa';
 import styles from './Hero.module.css';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -8,7 +9,7 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const phrases = ['I code', 'I design', 'I shoot'];
+  const phrases = ['I code', 'I design', 'I create brands', 'I build websites'];
 
   useEffect(() => {
     const handleType = () => {
@@ -20,11 +21,11 @@ const Hero = () => {
       setText(updatedText);
 
       if (!isDeleting && updatedText === currentPhrase) {
-        setTimeout(() => setIsDeleting(true), 1000); // Pause before deleting
+        setTimeout(() => setIsDeleting(true), 1000);
       } else if (isDeleting && updatedText === '') {
         setIsDeleting(false);
-        setLoopNum(loopNum + 1); // Move to the next phrase
-        setTypingSpeed(150); // Reset typing speed
+        setLoopNum(loopNum + 1);
+        setTypingSpeed(150);
       }
     };
 
@@ -35,32 +36,44 @@ const Hero = () => {
   return (
     <section className={styles.heroSection}>
       <div className={styles.container}>
-        <div className={styles.content}>
-          <span className={styles.badge}>
-            Hello World! 👋
-          </span>
+        <motion.div
+          className={styles.content}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <span className={styles.badge}>Hi there! 👋</span>
 
-          <h1 className={styles.title}>
-            I'm Seth Makori
-          </h1>
+          <h1 className={styles.title}>I'm Seth Makori Bellarin</h1>
 
           <h2 className={styles.subtitle}>
-            {text}
-            <span className={styles.cursor}>|</span> {/* Cursor effect */}
+            {text}<span className={styles.cursor}>|</span>
           </h2>
 
           <p className={styles.description}>
-            A passionate software engineer and designer, transforming ideas into 
-            elegant digital experiences. Based in Kenya, working worldwide.
+            A creative graphic designer and full-stack web developer based in Kenya.
+            I specialize in branding, UX/UI design, and building fast, accessible digital experiences
+            for clients around the globe. Let's create something remarkable together.
           </p>
 
           <div className={styles.buttonGroup}>
-            <button className={styles.primaryButton}>
-              View My Work
-            </button>
-            <button className={styles.secondaryButton}>
+            <a
+              href="https://drive.google.com/drive/folders/1CHh3MnKyITHP9Q4VLRbD5k_pEYQE01J9"
+              className={styles.primaryButton}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View My Portfolio
+            </a>
+            <a
+              href="https://wa.me/+254759433906"
+              className={styles.secondaryButton}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Let's Connect
-            </button>
+            </a>
           </div>
 
           <div className={styles.socialLinks}>
@@ -77,22 +90,29 @@ const Hero = () => {
               <FaEnvelopeOpen size={24} />
             </SocialLink>
           </div>
-        </div>
+        </motion.div>
 
-        <div className={styles.imageContainer}>
+        <motion.div
+          className={styles.imageContainer}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           <img
             src={process.env.PUBLIC_URL + '/sethmakori1.jpg'}
-            alt="Seth Makori"
+            alt="Seth Makori portrait image"
             className={styles.image}
+            loading="lazy"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 const SocialLink = ({ href, children }) => (
-  <a 
+  <a
     href={href}
     className={styles.socialLink}
     target="_blank"
