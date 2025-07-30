@@ -6,7 +6,7 @@ import Services from './components/Services';
 import Skills from './components/Skills';
 import Certifications from './components/Certifications'; // Import Certifications
 import Contact from './components/Contact';
-import Graphicsection from './components/Graphicsection';
+import VisualPortfolio from './components/VisualPortfolio';
 import './App.css';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <About />
       <Services />
       <Skills />
-      <Graphicsection />
+      <VisualPortfolio />
       <Certifications /> {/* Add Certifications */}
       <Contact />
     </div>

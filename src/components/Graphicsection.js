@@ -1,135 +1,183 @@
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, FileImage, Layout, Film, Presentation } from "lucide-react";
-import styles from './Graphicsection.module.css';
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import styles from './VisualPortfolio.module.css';
 
-export default function GraphicsShowcase() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const basePath = "/sethbellarin";
-  const coverImages = [
-    `${basePath}/images/cover1.png`,
-    `${basePath}/images/cover2.png`
+const VisualPortfolio = () => {
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [currentIndex, setCurrentIndex] = useState(2); // Start with center item
+
+  const filters = ['All', 'Logos', 'Posters', 'Web UI', 'Social Media', 'Branding'];
+
+  const designs = [
+    {
+      id: 1,
+      title: 'Brand Identity Design',
+      category: 'Logos',
+      image: '/sethbellarin/images/poster1.jpg',
+      description: 'Modern logo design for tech startup'
+    },
+    {
+      id: 2,
+      title: 'Event Poster',
+      category: 'Posters',
+      image: '/sethbellarin/images/poster2.jpg',
+      description: 'Creative poster for music festival'
+    },
+    {
+      id: 3,
+      title: 'Marketing Campaign',
+      category: 'Social Media',
+      image: '/sethbellarin/images/cover1.png',
+      description: 'Social media campaign visuals'
+    },
+    {
+      id: 4,
+      title: 'Web Interface',
+      category: 'Web UI',
+      image: '/sethbellarin/images/cover2.png',
+      description: 'Modern web application design'
+    },
+    {
+      id: 5,
+      title: 'Brand Package',
+      category: 'Branding',
+      image: '/sethbellarin/images/poster1.jpg',
+      description: 'Complete branding solution'
+    }
   ];
 
+  const filteredDesigns = activeFilter === 'All' 
+    ? designs 
+    : designs.filter(design => design.category === activeFilter);
+
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => 
+      prev === 0 ? filteredDesigns.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => 
+      prev === filteredDesigns.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const getCarouselItems = () => {
+    const items = [];
+    const totalItems = filteredDesigns.length;
+    
+    for (let i = 0; i < totalItems; i++) {
+      const position = (i - currentIndex + totalItems) % totalItems;
+      let className = styles.carouselItem;
+      
+      if (position === 0) className += ` ${styles.center}`;
+      else if (position === 1 || position === totalItems - 1) className += ` ${styles.side}`;
+      else className += ` ${styles.hidden}`;
+      
+      items.push({
+        ...filteredDesigns[i],
+        className,
+        position
+      });
+    }
+    
+    return items;
+  };
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? coverImages.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === coverImages.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    setCurrentIndex(0);
+  }, [activeFilter]);
 
   return (
-    <section id="graphics" className={styles.graphicsSection} aria-label="Graphic Design Portfolio by Seth Makori Bellarin">
+    <section id="visual-portfolio" className={styles.portfolioSection}>
+      <div className={styles.backgroundBlur} />
+      
       <div className={styles.container}>
-        <h2 className={styles.title}>Graphic & Visual Design Showcase - Seth Makori</h2>
-        <p className={styles.subtitle}>
-          Explore high-quality visual content, from branding assets to promotional materials.
-          Designed by Kenyan-based creative and web developer Seth Makori Bellarin.
-        </p>
+        <div className={styles.glassCard}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>My Visual Diary</h2>
+            <p className={styles.subtitle}>Explore my world of design and visuals</p>
+          </div>
 
-        <div className={styles.sliderContainer} aria-live="polite">
-          {coverImages.map((src, index) => (
-            <div
-              key={index}
-              className={`${styles.slide} ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}
-              aria-hidden={index !== currentImageIndex}
-            >
-              <img
-                src={src}
-                alt={`Graphic design preview ${index + 1} by Seth Makori Bellarin`}
-                loading="lazy"
-              />
-              <div className={styles.slideOverlay} />
+          <div className={styles.filterButtons}>
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                className={`${styles.filterButton} ${
+                  activeFilter === filter ? styles.active : ''
+                }`}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
+          <div className={styles.carouselContainer}>
+            <div className={styles.carousel}>
+              {getCarouselItems().map((item) => (
+                <div
+                  key={item.id}
+                  className={item.className}
+                  style={{
+                    transform: item.position === 0 
+                      ? 'translateX(0) scale(1) rotateY(0deg)'
+                      : item.position === 1
+                      ? 'translateX(120px) scale(0.8) rotateY(-25deg)'
+                      : item.position === filteredDesigns.length - 1
+                      ? 'translateX(-120px) scale(0.8) rotateY(25deg)'
+                      : 'translateX(0) scale(0.6) rotateY(0deg)'
+                  }}
+                >
+                  <div className={styles.imageWrapper}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={styles.designImage}
+                    />
+                    <div className={styles.imageOverlay}>
+                      <h3 className={styles.designTitle}>{item.title}</h3>
+                      <p className={styles.designDescription}>{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
 
-          <button
-            onClick={handlePrevImage}
-            className={`${styles.sliderButton} ${styles.prevButton}`}
-            aria-label="Show previous graphic preview"
-          >
-            <ChevronLeft size={24} />
-          </button>
+          <div className={styles.navigation}>
+            <button
+              className={styles.navButton}
+              onClick={handlePrevious}
+              aria-label="Previous design"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              className={styles.navButton}
+              onClick={handleNext}
+              aria-label="Next design"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
 
-          <button
-            onClick={handleNextImage}
-            className={`${styles.sliderButton} ${styles.nextButton}`}
-            aria-label="Show next graphic preview"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </div>
-
-        <div className={styles.categoriesGrid}>
-          <DesignCategory
-            title="Posters"
-            icon={<FileImage className={styles.categoryIcon} />}
-            imageSrc={`${basePath}/images/poster1.jpg`}
-            link="https://drive.google.com/drive/folders/1CHh3MnKyITHP9Q4VLRbD5k_pEYQE01J9?usp=sharing"
-            description="A collection of marketing and event posters designed for visual impact."
-          />
-
-          <DesignCategory
-            title="Logos"
-            icon={<Layout className={styles.categoryIcon} />}
-            imageSrc={`${basePath}/images/poster2.jpg`}
-            link="https://drive.google.com/drive/folders/139Z7qJH87yKM6JByVOEJjWfPPkwgmAxg?usp=sharing"
-            description="A gallery of brand logos crafted for startups, organizations, and creatives."
-          />
-
-          <DesignCategory
-            title="Videos"
-            icon={<Film className={styles.categoryIcon} />}
-            imageSrc={`${basePath}/images/video-thumbnail.jpg`}
-            link="https://drive.google.com/file/d/1YLYbzURG7DRzT1z1mXVqAASye8T5_V4G/view?usp=sharing"
-            description="Short-form video projects for branding and social media campaigns."
-          />
-
-          <DesignCategory
-            title="Slides"
-            icon={<Presentation className={styles.categoryIcon} />}
-            imageSrc={`${basePath}/images/cover2.png`}
-            link="https://drive.google.com/drive/folders/139Z7qJH87yKM6JByVOEJjWfPPkwgmAxg?usp=sharing"
-            description="Professional slide decks for corporate and educational presentations."
-          />
+          <div className={styles.indicators}>
+            {filteredDesigns.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.indicator} ${
+                  index === currentIndex ? styles.activeIndicator : ''
+                }`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to design ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-function DesignCategory({ title, icon, imageSrc, link, description }) {
-  return (
-    <article className={styles.categoryCard} aria-labelledby={`${title.toLowerCase()}-title`}>
-      <div className={styles.categoryImage}>
-        <img src={imageSrc} alt={`${title} design sample`} loading="lazy" />
-      </div>
-
-      <div className={styles.categoryContent}>
-        {icon}
-        <h3 id={`${title.toLowerCase()}-title`} className={styles.categoryTitle}>{title}</h3>
-        <p className={styles.categoryDescription}>{description}</p>
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.viewButton}
-          aria-label={`View Seth Makori's ${title}`}
-        >
-          View {title}
-        </a>
-      </div>
-    </article>
-  );
-}
+export default VisualPortfolio;
