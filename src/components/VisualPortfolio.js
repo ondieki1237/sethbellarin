@@ -9,76 +9,140 @@ const VisualPortfolio = () => {
   const filters = ['All', 'Logos', 'Posters', 'Web UI', 'Social Media', 'Branding'];
 
   const designs = [
-    {
-      id: 1,
-      title: 'Brand Identity Design',
-      category: 'Logos',
-      image: '/sethbellarin/images/poster1.jpg',
-      description: 'Modern logo design for tech startup'
-    },
-    {
-      id: 2,
-      title: 'Event Poster',
-      category: 'Posters',
-      image: '/sethbellarin/images/poster2.jpg',
-      description: 'Creative poster for music festival'
-    },
-    {
-      id: 3,
-      title: 'Marketing Campaign',
-      category: 'Social Media',
-      image: '/sethbellarin/images/cover1.png',
-      description: 'Social media campaign visuals'
-    },
-    {
-      id: 4,
-      title: 'Web Interface',
-      category: 'Web UI',
-      image: '/sethbellarin/images/cover2.png',
-      description: 'Modern web application design'
-    },
-    {
-      id: 5,
-      title: 'Brand Package',
-      category: 'Branding',
-      image: '/sethbellarin/images/poster1.jpg',
-      description: 'Complete branding solution'
-    },
-    {
-      id: 6,
-      title: 'Art Exhibition Poster',
-      category: 'Posters',
-      image: '/sethbellarin/images/poster3.jpg',
-      description: 'Minimalist poster design for art show'
-    },
-    {
-      id: 7,
-      title: 'Tech Conference Ad',
-      category: 'Social Media',
-      image: '/sethbellarin/images/cover3.png',
-      description: 'Bold design for digital event promotion'
-    },
-    {
-      id: 8,
-      title: 'Mobile UI Concepts',
-      category: 'Web UI',
-      image: '/sethbellarin/images/cover4.png',
-      description: 'Clean and intuitive mobile interface designs'
-    },
-    {
-      id: 9,
-      title: 'Product Branding Mockup',
-      category: 'Branding',
-      image: '/sethbellarin/images/mockup1.jpg',
-      description: 'Realistic brand packaging mockups'
-    },
-    {
-      id: 10,
-      title: 'Event Teaser Poster',
-      category: 'Posters',
-      image: '/sethbellarin/images/poster4.jpg',
-      description: 'Hype-building visual for upcoming event'
-    }
+  {
+    id: 1,
+    title: 'Company Logo Design',
+    category: 'Logos',
+    image: '/sethbellarin/images/cover1.png'
+  },
+  {
+    id: 2,
+    title: 'Product Logo Concept',
+    category: 'Logos',
+    image: '/sethbellarin/images/cover2.png'
+  },
+  {
+    id: 3,
+    title: 'Event Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/poster2.jpg'
+  },
+  // {
+  //   id: 5,
+  //   title: 'Web Interface',
+  //   category: 'Web UI',
+  //   image: '/sethbellarin/images/cover4.png'
+  // },
+  {
+    id: 6,
+    title: 'Brand Package',
+    category: 'Posters',
+    image: '/sethbellarin/images/poster1.jpg'
+  },
+  {
+    id: 7,
+    title: 'Art Exhibition Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/poster3.jpg'
+  },
+  // {
+  //   id: 9,
+  //   title: 'Mobile UI Concepts',
+  //   category: 'Web UI',
+  //   image: '/sethbellarin/images/cover4.png'
+  // },
+  {
+    id: 12,
+    title: 'HER Campaign Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/h4h1.jpg'
+  },
+  {
+    id: 13,
+    title: 'Thank You Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/thankyou.jpg'
+  },
+  {
+    id: 14,
+    title: 'Wanda\'s Showcase Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/wandas.png'
+  },
+  {
+    id: 15,
+    title: 'YAGC Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/yagc.png'
+  },
+  {
+    id: 16,
+    title: 'Inspiration Poster 1',
+    category: 'Posters',
+    image: '/sethbellarin/images/nice1.jpg'
+  },
+  {
+    id: 17,
+    title: 'Inspiration Poster 2',
+    category: 'Posters',
+    image: '/sethbellarin/images/nice2.jpg'
+  },
+  {
+    id: 18,
+    title: 'Inspiration Poster 3',
+    category: 'Posters',
+    image: '/sethbellarin/images/nice3.jpg'
+  },
+  {
+    id: 19,
+    title: 'Business Impact Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/business.jpg'
+  },
+  {
+    id: 20,
+    title: 'Third Edition Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/third.jpg'
+  },
+  {
+    id: 21,
+    title: 'Fourth Edition Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/fourth.jpg'
+  },
+  {
+    id: 22,
+    title: 'Quotation Poster',
+    category: 'Posters',
+    image: '/sethbellarin/images/quotation.jpg'
+  },
+  
+  {
+    id: 23,
+    title: 'Branding',
+    category: 'Branding',
+    image: '/sethbellarin/images/branding1.png'
+  },
+   {
+    id: 24,
+    title: 'Web Ui Design',
+    category: 'Web UI',
+    image: '/sethbellarin/images/anah.jpg'
+  },
+     {
+    id: 25,
+    title: 'Web Ui Design',
+    category: 'Web UI',
+    image: '/sethbellarin/images/food.jpg'
+  },
+     {
+    id: 26,
+    title: 'Web Ui Design',
+    category: 'Web UI',
+    image: '/sethbellarin/images/cadiet.jpg'
+  }
+
   ];
 
   const filteredDesigns = activeFilter === 'All' 

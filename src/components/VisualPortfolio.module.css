@@ -13,9 +13,9 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    #667eea 0%,
-    #764ba2 50%,
-    #f093fb 100%
+    #0d9488 0%, /* Teal */
+    #2dd4bf 50%, /* Light teal */
+    #5eead4 100% /* Brighter teal */
   );
   filter: blur(100px);
   opacity: 0.8;
@@ -23,7 +23,7 @@
 }
 
 .container {
-  max-width: 90rem;
+  max-width: 100rem; /* Increased from 90rem to reduce side margins */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -39,7 +39,7 @@
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.1),
     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  max-width: 70rem;
+  max-width: 85rem; /* Increased from 70rem to span closer to edges */
   width: 100%;
   position: relative;
 }
@@ -90,13 +90,13 @@
 }
 
 .filterButton.active {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #0d9488, #2dd4bf); /* Teal gradient */
   border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3); /* Adjusted shadow to match teal */
 }
 
 .carouselContainer {
-  height: 400px;
+  height: 450px; /* Increased from 400px to accommodate larger carousel items */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,8 +115,8 @@
 
 .carouselItem {
   position: absolute;
-  width: 280px;
-  height: 320px;
+  width: 320px; /* Increased from 280px and made square */
+  height: 450px; /* Set to match width for square shape */
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
@@ -162,7 +162,7 @@
 
 .designImage {
   width: 100%;
-  height: 70%;
+  height: 70%; /* Maintain for non-Web UI images */
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -251,7 +251,7 @@
 @media (max-width: 1024px) {
   .glassCard {
     padding: 2rem;
-    margin: 0 1rem;
+    margin: 0 0.5rem; /* Reduced margin to span closer to edges */
   }
 
   .title {
@@ -259,8 +259,8 @@
   }
 
   .carouselItem {
-    width: 240px;
-    height: 280px;
+    width: 280px; /* Increased from 240px, kept square */
+    height: 350px;
   }
 
   .carouselItem.side {
@@ -276,6 +276,7 @@
   .glassCard {
     padding: 1.5rem;
     border-radius: 1.5rem;
+    margin: 0 0.25rem; /* Further reduced margin */
   }
 
   .title {
@@ -296,12 +297,12 @@
   }
 
   .carouselContainer {
-    height: 300px;
+    height: 340px; /* Adjusted for larger square items */
   }
 
   .carouselItem {
-    width: 200px;
-    height: 240px;
+    width: 240px; /* Increased from 200px, kept square */
+    height: 300px;
   }
 
   .carouselItem.side {
@@ -320,12 +321,12 @@
 
 @media (max-width: 480px) {
   .carouselContainer {
-    height: 250px;
+    height: 350px; /* Adjusted for larger square items */
   }
 
   .carouselItem {
-    width: 160px;
-    height: 200px;
+    width: 200px; /* Increased from 160px, kept square */
+    height: 300px;
   }
 
   .carouselItem.side {
