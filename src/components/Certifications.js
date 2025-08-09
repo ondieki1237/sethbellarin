@@ -21,18 +21,25 @@ const Certifications = () => {
       description: 'Awarded for participating in a hackathon organized by Power Learn Project.',
       link: 'https://drive.google.com/file/d/1Cb7heWb-LHuIu5P7FAr0couqlpFwsZu8/view?usp=drive_link',
     },
+    {
+      title: 'Software Engineering Certificate',
+      issuer: 'ALx',
+      description: 'Completed an intensive Software Engineering program by ALx.',
+      link: 'https://drive.google.com/file/d/1Qx13-15JTvZNmF29K5_gNifgeVqT5w3W/view?usp=sharing',
+    },
   ];
 
   return (
     <section id="certifications" className={styles.certificationsSection}>
       <div className={styles.container}>
         <h2 className={styles.title}>Certifications & Awards</h2>
+        <p className={styles.subtitle}>A collection of some of my professional achievements and certifications.</p>
         <div className={styles.certificatesGrid}>
           {certificates.map((cert, index) => (
             <div
               key={index}
               className={styles.certificateCard}
-              style={{ animationDelay: `${index * 0.2}s` }} // Staggered animation for each card
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               <h3 className={styles.certificateTitle}>{cert.title}</h3>
               <p className={styles.certificateIssuer}>Issued by: {cert.issuer}</p>

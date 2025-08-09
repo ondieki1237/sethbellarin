@@ -10,7 +10,7 @@
 .container {
   max-width: 80rem;
   margin: 0 auto;
-  width: 100%; /* Ensure the container takes full width within max-width */
+  width: 100%;
 }
 
 .title {
@@ -18,34 +18,73 @@
   font-weight: 700;
   text-align: center;
   color: #00AEAE;
-  margin-bottom: 5rem;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
 .title::after {
   content: '';
   position: absolute;
-  bottom: -1rem;
+  bottom: -0.5rem;
   left: 50%;
   transform: translateX(-50%);
   width: 3rem;
-  height: 2px;
+  height: 3px;
   background-color: #00AEAE;
+  transition: width 0.3s ease;
+}
+
+.title:hover::after {
+  width: 5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  text-align: center;
+  color: var(--gray-400);
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .certificatesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  overflow-x: auto; /* Allows horizontal scrolling if cards overflow */
+  scroll-snap-type: x mandatory; /* Smooth snapping for scrollable cards */
+  padding-bottom: 1rem; /* Space for scrollbar */
 }
 
 .certificateCard {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
   padding: 2rem;
-  border-radius: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0; /* Start with opacity 0 for animation */
-  animation: fadeIn 0.5s ease forwards; /* Fade-in animation */
+  border-radius: 1.25rem;
+  border: 1px solid rgba(0, 174, 174, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 300px; /* Fixed width for each card to ensure consistency */
+  scroll-snap-align: start; /* Aligns cards to start of scroll snap */
+}
+
+.certificateCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #00AEAE, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.certificateCard:hover::before {
+  opacity: 1;
 }
 
 @keyframes fadeIn {
@@ -60,8 +99,9 @@
 }
 
 .certificateCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 174, 174, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 174, 174, 0.25);
+  border-color: rgba(0, 174, 174, 0.5);
 }
 
 .certificateTitle {
@@ -75,12 +115,14 @@
   font-size: 1.25rem;
   color: var(--gray-400);
   margin-bottom: 1rem;
+  font-style: italic;
 }
 
 .certificateDescription {
   font-size: 1rem;
   color: var(--gray-400);
   margin-bottom: 1.5rem;
+  line-height: 1.5;
 }
 
 .certificateLink {
@@ -90,27 +132,36 @@
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 500;
 }
 
 .certificateLink:hover {
   background-color: #008080;
-  transform: translateY(-2px); /* Subtle lift on hover for desktop */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 174, 174, 0.3);
 }
 
-/* Mobile view (unchanged) */
+/* Mobile view */
 @media (max-width: 768px) {
   .title {
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .certificatesGrid {
-    grid-template-columns: 1fr;
+    flex-direction: row; /* Keep horizontal layout for consistency */
+    gap: 1.5rem;
   }
 
   .certificateCard {
-    padding: 1.5rem; /* Slightly less padding on mobile */
+    padding: 1.5rem;
+    flex: 0 0 280px; /* Slightly smaller width for mobile */
   }
 
   .certificateTitle {
@@ -126,49 +177,60 @@
   }
 
   .certificateLink {
-    padding: 0.5rem 1rem; /* Smaller button on mobile */
+    padding: 0.5rem 1rem;
   }
 }
 
-/* Desktop view (≥ 1024px) */
+/* Desktop view */
 @media (min-width: 1024px) {
   .certificationsSection {
-    padding: 10rem 2rem; /* More padding on desktop */
+    padding: 10rem 2rem;
   }
 
   .title {
-    font-size: 4.5rem; /* Larger title on desktop */
-    margin-bottom: 6rem;
+    font-size: 4rem;
+    margin-bottom: 2rem;
   }
 
   .title::after {
-    width: 4rem; /* Slightly wider underline on desktop */
+    width: 4rem;
+  }
+
+  .title:hover::after {
+    width: 6rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 5rem;
   }
 
   .certificatesGrid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-    gap: 3rem; /* More spacing between cards */
+    flex-direction: row;
+    gap: 3rem;
+    overflow-x: auto; /* Ensure scrolling if more cards are added */
   }
 
   .certificateCard {
-    padding: 2.5rem; /* More padding inside cards */
-    border-radius: 1.25rem; /* Slightly larger border radius */
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    flex: 0 0 320px; /* Slightly larger width for desktop */
   }
 
   .certificateTitle {
-    font-size: 2rem; /* Larger title on desktop */
+    font-size: 2rem;
   }
 
   .certificateIssuer {
-    font-size: 1.5rem; /* Larger issuer text */
+    font-size: 1.5rem;
   }
 
   .certificateDescription {
-    font-size: 1.1rem; /* Slightly larger description text */
+    font-size: 1.1rem;
   }
 
   .certificateLink {
-    padding: 1rem 2rem; /* Larger button on desktop */
-    font-size: 1.1rem; /* Larger button text */
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
   }
 }
