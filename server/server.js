@@ -77,6 +77,12 @@ app.post('/api/send-email', async (req, res) => {
   }
 });
 
+// (place where code uses something.fsPath)
+if (item && typeof item.fsPath !== 'undefined') {
+  const p = item.fsPath;
+  // ...use p...
+}
+
 // Start server (respect PORT env var when deployed)
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
