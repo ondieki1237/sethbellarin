@@ -72,7 +72,7 @@ app.post('/api/send-email', async (req, res) => {
   }
 });
 
-// Start server
+// Start server (respect PORT env var when deployed)
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
