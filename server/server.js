@@ -33,6 +33,11 @@ const transporter = nodemailer.createTransport(
   }
 );
 
+// listen for transport-level errors so they don't bubble as unhandled 'error' events
+transporter.on('error', (err) => {
+  console.error('Nodemailer transport error:', err && err.stack ? err.stack : err);
+});
+
 // verify transporter early so errors surface on startup (prints full error)
 transporter.verify((err, success) => {
   if (err) {
@@ -74,6 +79,24 @@ app.post('/api/send-email', async (req, res) => {
 
 // Start server (respect PORT env var when deployed)
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+});
+
+// handle server errors (EADDRINUSE, etc.) instead of letting Node throw uncaught 'error'
+server.on('error', (err) => {
+  console.error('HTTP server error:', err && err.stack ? err.stack : err);
+  // optional: exit for fatal errors so process manager can restart
+  // process.exit(1);
+});
+
+// global process-level handlers to log unexpected failures
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err && err.stack ? err.stack : err);
+  // consider exiting in production: process.exit(1);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled promise rejection:', reason && reason.stack ? reason.stack : reason);
+  // consider exiting in production: process.exit(1);
 });
