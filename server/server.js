@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport(
     },
     tls: {
       // allow self-signed certs if needed for testing (remove in production)
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
     },
   },
   {
@@ -35,13 +35,19 @@ const transporter = nodemailer.createTransport(
 
 // listen for transport-level errors so they don't bubble as unhandled 'error' events
 transporter.on('error', (err) => {
-  console.error('Nodemailer transport error:', err && err.stack ? err.stack : err);
+  console.error(
+    'Nodemailer transport error:',
+    err && err.stack ? err.stack : err
+  );
 });
 
 // verify transporter early so errors surface on startup (prints full error)
 transporter.verify((err, success) => {
   if (err) {
-    console.error('Nodemailer verify failed:', err && err.stack ? err.stack : err);
+    console.error(
+      'Nodemailer verify failed:',
+      err && err.stack ? err.stack : err
+    );
   } else {
     console.log('Nodemailer transporter is ready');
   }
@@ -71,17 +77,20 @@ app.post('/api/send-email', async (req, res) => {
     console.log('Email sent:', info.messageId);
     res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Error sending email:', error && error.response ? error.response : (error && error.message ? error.message : error));
+    console.error(
+      'Error sending email:',
+      error && error.response
+        ? error.response
+        : error && error.message
+        ? error.message
+        : error
+    );
     // return more helpful message to frontend
-    res.status(500).json({ error: 'Failed to send email. Check server logs for details.' });
+    res
+      .status(500)
+      .json({ error: 'Failed to send email. Check server logs for details.' });
   }
 });
-
-// (place where code uses something.fsPath)
-if (item && typeof item.fsPath !== 'undefined') {
-  const p = item.fsPath;
-  // ...use p...
-}
 
 // Start server (respect PORT env var when deployed)
 const PORT = process.env.PORT || 5000;
@@ -103,6 +112,9 @@ process.on('uncaughtException', (err) => {
 });
 
 process.on('unhandledRejection', (reason) => {
-  console.error('Unhandled promise rejection:', reason && reason.stack ? reason.stack : reason);
+  console.error(
+    'Unhandled promise rejection:',
+    reason && reason.stack ? reason.stack : reason
+  );
   // consider exiting in production: process.exit(1);
 });
